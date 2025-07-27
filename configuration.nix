@@ -98,12 +98,27 @@ in {
     shell = pkgs.fish;
   };
 
+  services.displayManager.ly.enable = true;
+  services.displayManager.ly.settings = {
+    # matrix || none
+    animation = "matrix";
+    # The character used to mask the password
+    asterisk = ".";
+    # Erase password input on failure
+    clear_password = true;
+    # Remove main box borders
+    hide_borders = true;
+    # Main box margins
+    margin_box_h = 2;
+    margin_box_v = 1;
+    # Input boxes length
+    input_len = 34;
+  };
+
   # programs.firefox.enable = true;
   programs.hyprland.enable = true;
   programs.niri.enable = true;
   programs.fish.enable = true;
-  services.displayManager.ly.enable = true;
-
   programs.nix-ld.enable = true;
 
   # List packages installed in system profile.
@@ -160,6 +175,7 @@ in {
     neovide
     aria2
     usbutils
+    tmate
   ];
 
   environment.localBinInPath = true;
